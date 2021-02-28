@@ -1,10 +1,9 @@
-{
-  pkgs ? import <nixpkgs> {}
-}:
-pkgs.stdenv.mkDerivation rec {
+{ stdenv, fetchFromGitHub }:
+
+stdenv.mkDerivation rec {
   name = "stm8flash-${version}";
   version = "1.0";
-  src = pkgs.fetchFromGitHub {
+  src = fetchFromGitHub {
     owner = "vdudouyt";
     repo = "stm8flash";
     rev = "1fe6521473dcc8615fcf77edc8e22ade6e6ccb56";
@@ -22,7 +21,7 @@ pkgs.stdenv.mkDerivation rec {
     mv stm8flash $out/bin
   '';
 
-  meta = with pkgs.stdenv.lib; {
+  meta = with stdenv.lib; {
     description = "program your stm8 devices with SWIM/stlinkv(1,2)";
     homepage = "https://github.com/vdudouyt/stm8flash/";
     license = licenses.gpl2;

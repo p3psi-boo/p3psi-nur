@@ -1,7 +1,7 @@
-{ lib, stdenv, fetchgit, linuxManualConfig, ... } @ args:
+{ stdenv, fetchgit, linuxManualConfig, ... }:
 
 linuxManualConfig ({
-  inherit lib stdenv;
+  inherit stdenv;
 
   version = "4.4.179-ARCH";
   modDirVersion = "4.4.179-ARCH";
