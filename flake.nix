@@ -4,9 +4,13 @@
   inputs.flake-utils.url = "github:numtide/flake-utils";
 
   outputs = { self, nixpkgs, flake-utils }: {
-    overlay = final: prev: {
-      linux_gru_4_4 = prev.callPackage ./pkgs/linux_gru_4_4;
-      stm8flash = prev.callPackage ./pkgs/stm8flash;
-    };
+
+    overlay = final: prev:
+      let p = rec {
+            linux_gru_4_4 = prev.callPackage ./pkgs/linux_gru_4_4 {  };
+            linuxPackages_gru_4_4 = final.linuxPackagesFor final.linux_gru_4_4;
+
+            stm8flash = prev.callPackage ./pkgs/stm8flash {  };
+          }; in p // { colePackages = p; };
   };
 }
