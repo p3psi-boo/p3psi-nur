@@ -26,7 +26,7 @@ pkgs.stdenv.mkDerivation rec {
     description = "program your stm8 devices with SWIM/stlinkv(1,2)";
     homepage = "https://github.com/vdudouyt/stm8flash/";
     license = licenses.gpl2;
-    maintainers = with maintainers; [vdudouyt];
+    maintainers = with maintainers; [ "vdudouyt" ];
     platforms = platforms.unix;
   };
 }
