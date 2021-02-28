@@ -1,9 +1,10 @@
-{ stdenv, buildLinux, fetchgit, ... } @ args:
+{ stdenv, fetchgit, linuxManualConfig, ... } @ args:
 
-buildLinux (args // rec {
+linuxManualConfig ({
+  inherit stdenv;
 
-  version = "4.4.179";
-  modDirVersion = "4.4.179";
+  version = "4.4.179-ARCH";
+  modDirVersion = "4.4.179-ARCH";
 
   configfile = ./linux-gru.config;
 
@@ -23,8 +24,5 @@ buildLinux (args // rec {
     { name = "linux-nixos-toolchain-compat"; patch = ./linux-nixos-toolchain-compat.patch; }
   ];
 
-  features = {
-    efiBootStub = false;
-  } // (args.features or {});
-
-} // (args.argsOverride or {  }))
+  features = { };
+})

@@ -4,8 +4,11 @@
 pkgs.stdenv.mkDerivation rec {
   name = "stm8flash-${version}";
   version = "1.0";
-  src = builtins.fetchGit {
-    url = "https://github.com/vdudouyt/stm8flash/";
+  src = pkgs.fetchFromGitHub {
+    owner = "vdudouyt";
+    repo = "stm8flash";
+    rev = "1fe6521473dcc8615fcf77edc8e22ade6e6ccb56";
+    sha256 = "1wzr7zbh503pp40qqfg0d264dcg8sk66a2z4gvgz59b6zzhix8z7";
   };
 
   buildInputs = [
