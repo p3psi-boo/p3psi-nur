@@ -14,7 +14,8 @@
   modules = import ./modules; # NixOS modules
   overlays = import ./overlays; # nixpkgs overlays
 
-  example-package = pkgs.callPackage ./pkgs/example-package { };
+  stm8flash = pkgs.callPackage ./pkgs/stm8flash { };
+  linux_gru_4_4 = pkgs.callPackage ./pkgs/linux_gru_4_4 { };
   # some-qt5-package = pkgs.libsForQt5.callPackage ./pkgs/some-qt5-package { };
   # ...
 }
