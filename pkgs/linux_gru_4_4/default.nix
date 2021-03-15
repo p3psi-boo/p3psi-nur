@@ -1,7 +1,7 @@
-{ stdenv, fetchgit, linuxManualConfig, ... }:
+{ stdenv, lib, fetchgit, linuxManualConfig, ... }:
 
 linuxManualConfig ({
-  inherit stdenv;
+  inherit lib stdenv; # nixos-rebuild with flake need lib as param
 
   version = "4.4.179-ARCH";
   modDirVersion = "4.4.179-ARCH";
