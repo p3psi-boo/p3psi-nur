@@ -1,4 +1,4 @@
-{ stdenv, fetchFromGitHub }:
+{ stdenv, fetchFromGitHub, libusb1, pkg-config }:
 
 stdenv.mkDerivation rec {
   name = "stm8flash-${version}";
@@ -11,8 +11,8 @@ stdenv.mkDerivation rec {
   };
 
   buildInputs = [
-    pkgs.libusb1
-    pkgs.pkg-config
+    libusb1
+    pkg-config
   ];
 
   buildPhase = "make";
